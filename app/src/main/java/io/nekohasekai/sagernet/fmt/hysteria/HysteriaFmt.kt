@@ -183,6 +183,9 @@ fun HysteriaBean.buildHysteriaConfig(port: Int, cacheFile: (() -> File)?): Strin
             it["ca"] = caFile.absolutePath
         }
 
+        it["fast_open"] = true
+        it["lazy_start"] = true
+
         if (allowInsecure) it["insecure"] = true
         if (streamReceiveWindow > 0) it["recv_window_conn"] = streamReceiveWindow
         if (connectionReceiveWindow > 0) it["recv_window"] = connectionReceiveWindow
